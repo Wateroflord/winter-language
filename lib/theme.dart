@@ -25,13 +25,6 @@ class AppColors {
   static const good = Color(0xFF3DD68C);
   static const under = Color(0xFFF2B14C);
   static const over = Color(0xFFFF5C7A);
-
-  static Color status(DayStatus s) => switch (s) {
-        DayStatus.good => good,
-        DayStatus.under => under,
-        DayStatus.over => over,
-        DayStatus.none => border,
-      };
 }
 
 class Txt {
