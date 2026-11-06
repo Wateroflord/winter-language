@@ -65,6 +65,7 @@ class LifeStore {
   /// Слить прогресс из другого источника (например, из КБЖУ):
   /// по каждому слову берём карточку, где больше ответов; минуты по дням — максимум из двух.
   void mergeFrom(LifeStore o) {
+    final wasEmpty = seenTotal() == 0;
     o.learnCards.forEach((lang, cards) {
       final mine = learnCards.putIfAbsent(lang, () => {});
       cards.forEach((id, c) {
@@ -81,7 +82,7 @@ class LifeStore {
     o.learnGoalText.forEach((l, t) {
       if ((learnGoalText[l] ?? '').isEmpty && t.isNotEmpty) learnGoalText[l] = t;
     });
-    if (learnCards.isEmpty || seenTotal() == 0) learnLang = o.learnLang;
+    if (wasEmpty) learnLang = o.learnLang;
     learnGoalMin = o.learnGoalMin;
   }
 
