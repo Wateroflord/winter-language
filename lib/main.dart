@@ -5,12 +5,15 @@ import 'screens/learn_screen.dart';
 import 'screens/settings_screen.dart';
 import 'store.dart';
 import 'theme.dart';
+import 'package:winter_core/winter_core.dart';
 
-Future<void> main() async {
+void main() => runWinterApp(repo: 'winter-language', appName: 'Winter Language', body: _main);
+
+Future<void> _main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final store = AppStore();
   await store.load();
-  runApp(StoreScope(store: store, child: const LanguageApp()));
+  runApp(WinterCrashBanner(child: StoreScope(store: store, child: const LanguageApp())));
 }
 
 class LanguageApp extends StatelessWidget {
