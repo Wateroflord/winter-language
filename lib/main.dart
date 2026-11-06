@@ -7,7 +7,7 @@ import 'store.dart';
 import 'theme.dart';
 import 'package:winter_core/winter_core.dart';
 
-void main() => runWinterApp(repo: 'winter-language', appName: 'Winter Language', body: _main);
+Future<void> main() => runWinterApp(repo: 'winter-language', appName: 'Winter Language', body: _main);
 
 Future<void> _main() async {
   WidgetsFlutterBinding.ensureInitialized();
